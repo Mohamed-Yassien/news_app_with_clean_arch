@@ -14,6 +14,7 @@ class NewsListComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NewsCubit, NewsStates>(
       builder: (context, state) {
+         var cubit = sl<NewsCubit>();
         return state is GetNewsLoadingState
             ? const Center(
                 child: CircularProgressIndicator(),
@@ -25,7 +26,7 @@ class NewsListComponent extends StatelessWidget {
                 : ListView.separated(
                     padding: const EdgeInsets.all(15),
                     itemBuilder: (context, index) {
-                      var cubit = sl<NewsCubit>();
+                     
                       var item = cubit.newsList[index];
                       return Card(
                         elevation: 1,
@@ -84,7 +85,7 @@ class NewsListComponent extends StatelessWidget {
                         height: 15,
                       );
                     },
-                    itemCount: 10,
+                    itemCount: cubit.newsList.length,
                   );
       },
     );
