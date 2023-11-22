@@ -10,7 +10,7 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<NewsCubit>(),
+      create: (context) => sl<NewsCubit>()..getNews(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
