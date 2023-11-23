@@ -14,7 +14,7 @@ class NewsListComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NewsCubit, NewsStates>(
       builder: (context, state) {
-         var cubit = sl<NewsCubit>();
+        var cubit = sl<NewsCubit>();
         return state is GetNewsLoadingState
             ? const Center(
                 child: CircularProgressIndicator(),
@@ -26,7 +26,6 @@ class NewsListComponent extends StatelessWidget {
                 : ListView.separated(
                     padding: const EdgeInsets.all(15),
                     itemBuilder: (context, index) {
-                     
                       var item = cubit.newsList[index];
                       return Card(
                         elevation: 1,
@@ -38,7 +37,7 @@ class NewsListComponent extends StatelessWidget {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: CachedNetworkImage(
-                                  imageUrl:item.urlToImage,
+                                  imageUrl: item.urlToImage,
                                   fit: BoxFit.cover,
                                   width: 120,
                                   height: 120,
@@ -47,7 +46,7 @@ class NewsListComponent extends StatelessWidget {
                               const SizedBox(
                                 width: 15,
                               ),
-                               Expanded(
+                              Expanded(
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
