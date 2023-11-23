@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class NewsEntity extends Equatable {
-  final String title, description, urlToImage;
+  final String title, description, urlToImage ,url;
 
   const NewsEntity({
     required this.title,
     required this.description,
     required this.urlToImage,
+    required this.url,
   });
 
   @override
@@ -14,5 +15,6 @@ class NewsEntity extends Equatable {
         title,
         description,
         urlToImage,
+        url,
       ];
 }
