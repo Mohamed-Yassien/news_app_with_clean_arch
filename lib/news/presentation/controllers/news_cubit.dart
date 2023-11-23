@@ -14,7 +14,7 @@ class NewsCubit extends Cubit<NewsStates> {
 
   Future<void> getNews() async {
     emit(GetNewsLoadingState());
-    final response = await getNewsUseCase();
+    final response = await getNewsUseCase(NoParameters());
     response.fold(
       (l) => emit(
         GetNewsErrorState(
