@@ -4,6 +4,7 @@ import 'package:usama_elgendy_cclean_arch/news/data/repository/news_repository.d
 import 'package:usama_elgendy_cclean_arch/news/domain/repository/base_news_repository.dart';
 import 'package:usama_elgendy_cclean_arch/news/domain/use_cases/get_news_usecase.dart';
 import 'package:usama_elgendy_cclean_arch/news/presentation/controllers/news_cubit.dart';
+import 'package:usama_elgendy_cclean_arch/theme/cubit/cubit/change_theme_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -14,6 +15,10 @@ class ServiceLocator {
       () => NewsCubit(
         sl(),
       ),
+    );
+
+    sl.registerLazySingleton<ChangeThemeCubit>(
+      () => ChangeThemeCubit(),
     );
 
     //USECASES
