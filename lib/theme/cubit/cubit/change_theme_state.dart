@@ -5,3 +5,5 @@ abstract class ChangeThemeState {
 }
 
 final class ChangeThemeInitial extends ChangeThemeState {}
+
+class ToggleThemeState extends ChangeThemeState{}

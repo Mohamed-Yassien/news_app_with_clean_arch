@@ -13,17 +13,18 @@ class NewsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<NewsCubit>()..getNews(),
       child: Scaffold(
-        floatingActionButton: BlocBuilder<ChangeThemeCubit, bool>(
+        floatingActionButton: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
           builder: (context, state) {
+             var cubit = sl<ChangeThemeCubit>();
             return FloatingActionButton(
               onPressed: () {
                 debugPrint(
                     "hash in news is ${sl<ChangeThemeCubit>().hashCode}");
-                sl<ChangeThemeCubit>().toggleTheme();
+                sl<ChangeThemeCubit>().switchTheme();
               },
-              child: state
-                  ? const Icon(Icons.light_mode)
-                  : const Icon(Icons.dark_mode),
+              child: cubit.light
+                  ? 
+                   const Icon(Icons.dark_mode) :const Icon(Icons.light_mode),
             );
           },
         ),
